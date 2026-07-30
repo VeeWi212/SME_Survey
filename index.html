@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Indian SME Survey</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -44,11 +47,19 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 .tag-blue{display:inline-block;background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;border-radius:4px;font-size:11px;padding:2px 7px;margin-left:6px}
 .tag-yellow{display:inline-block;background:#fefce8;color:#a16207;border:1px solid #fef08a;border-radius:4px;font-size:11px;padding:2px 7px}
 .highlight-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:10px 12px;font-size:12px;color:#166534;margin-top:0.75rem}
-.page{display:none}
-.page.active{display:block}
-.lang-selector{text-align:center;padding:2rem}
-.lang-btn{padding:12px 24px;margin:8px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;border:1px solid #2563eb;background:#ffffff;color:#2563eb;transition:all 0.3s}
-.lang-btn:hover{background:#2563eb;color:#ffffff}
+.page{display:none !important}
+.page.active{display:block !important}
+.lang-selector-container{text-align:center;padding:3rem 1rem}
+.lang-selector-container h2{font-size:20px;font-weight:600;color:#0f172a;margin-bottom:1rem}
+.lang-selector-container p{font-size:13px;color:#475569;margin-bottom:2rem}
+.lang-button-group{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.lang-button{width:100%;padding:15px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;border:none;color:#ffffff;transition:all 0.3s}
+.lang-button:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+.lang-button.en{background:#2563eb}
+.lang-button.hi{background:#d97706}
+.lang-button.gu{background:#8b5cf6}
+.lang-button.de{background:#06b6d4}
+.lang-button.ta{background:#ec4899}
 </style>
 </head>
 <body>
@@ -70,22 +81,22 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
   <!-- LANGUAGE SELECTION PAGE -->
   <div class="page active" id="p-lang">
     <div class="section-card">
-      <div style="text-align:center;padding:2rem">
-        <h2 style="font-size:20px;font-weight:600;color:#0f172a;margin-bottom:1rem;">Select Your Language</h2>
-        <p style="font-size:13px;color:#475569;margin-bottom:2rem;">कृपया अपनी भाषा चुनें | આपની ભાષા પસંદ કરો | Bitte wählen Sie Ihre Sprache | உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்</p>
-        <div class="opt-list" style="max-width:500px;margin:0 auto">
-          <button type="button" class="btn btn-primary" style="width:100%;padding:15px" onclick="setLanguage('en')">🇬🇧 English</button>
-          <button type="button" class="btn btn-primary" style="width:100%;padding:15px;background:#d97706" onclick="setLanguage('hi')">🇮🇳 हिंदी (Hindi)</button>
-          <button type="button" class="btn btn-primary" style="width:100%;padding:15px;background:#8b5cf6" onclick="setLanguage('gu')">🇮🇳 ગુજરાતી (Gujarati)</button>
-          <button type="button" class="btn btn-primary" style="width:100%;padding:15px;background:#06b6d4" onclick="setLanguage('de')">🇩🇪 Deutsch (German)</button>
-          <button type="button" class="btn btn-primary" style="width:100%;padding:15px;background:#ec4899" onclick="setLanguage('ta')">🇮🇳 தமிழ் (Tamil)</button>
+      <div class="lang-selector-container">
+        <h2>Select Your Language</h2>
+        <p>कृपया अपनी भाषा चुनें | આપની ભાષા પસંદ કરો | Bitte wählen Sie Ihre Sprache | உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்</p>
+        <div class="lang-button-group">
+          <button type="button" class="lang-button en" onclick="setLanguage('en')">🇬🇧 English</button>
+          <button type="button" class="lang-button hi" onclick="setLanguage('hi')">🇮🇳 हिंदी (Hindi)</button>
+          <button type="button" class="lang-button gu" onclick="setLanguage('gu')">🇮🇳 ગુજરાતી (Gujarati)</button>
+          <button type="button" class="lang-button de" onclick="setLanguage('de')">🇩🇪 Deutsch (German)</button>
+          <button type="button" class="lang-button ta" onclick="setLanguage('ta')">🇮🇳 தமிழ் (Tamil)</button>
         </div>
       </div>
     </div>
   </div>
 
   <!-- FORM WRAPPER START -->
-  <form id="surveyForm" onsubmit="event.preventDefault();" style="display:none">
+  <form id="surveyForm" onsubmit="event.preventDefault();">
     <input type="hidden" name="Language" id="langField" value="English">
 
     <!-- PAGE 1: Section A -->
@@ -96,12 +107,12 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
         <div class="q-block">
           <div class="q-label"><span data-en="A1. What is your primary product category?" data-hi="A1. आपकी प्राथमिक उत्पाद श्रेणी क्या है?" data-gu="A1. તમારી પ્રાથમિક ઉત્પાદન શ્રેણી શું છે?" data-de="A1. Was ist Ihre primäre Produktkategorie?" data-ta="A1. உங்கள் முதன்மை பொருள் வகை என்ன?"></span> <span class="req">*</span></div>
           <div class="opt-list">
-            <label class="opt"><input type="radio" name="A1_Product_Category" value="Textiles and apparel"> <div><div class="opt-text" data-en="Textiles and apparel" data-hi="वस्त्र और परिधान" data-gu="ટેક્સટાઈલ્સ અને પોશાક" data-de="Textilien und Bekleidung" data-ta="நூல் மற்றும் ஆடை"></div><div class="opt-sub" data-en="handloom, block print, embroidery, garments" data-hi="हथकरघा, ब्लॉक प्रिंट, कढ़ाई, परिधान" data-gu="હથેરણ, બ્લોક પ્રિન્ટ, 刺繍, પોશાક" data-de="Handweberei, Blockdruck, Stickerei, Kleidung" data-ta="கைத்தறி, தொகுதி அச்சு, சித்திரகாரी, ஆடை"></div></div></label>
+            <label class="opt"><input type="radio" name="A1_Product_Category" value="Textiles and apparel"> <div><div class="opt-text" data-en="Textiles and apparel" data-hi="वस्त्र और परिधान" data-gu="ટેક્સટાઈલ્સ અને પોશાક" data-de="Textilien und Bekleidung" data-ta="நூல் மற்றும் ஆடை"></div></div></label>
             <label class="opt"><input type="radio" name="A1_Product_Category" value="Handicrafts"> <div><div class="opt-text" data-en="Handicrafts" data-hi="हस्तशिल्प" data-gu="હસ્તશિલ્પ" data-de="Kunsthandwerk" data-ta="கைவினை"></div></div></label>
             <label class="opt"><input type="radio" name="A1_Product_Category" value="Ayurveda and wellness products"> <div><div class="opt-text" data-en="Ayurveda and wellness products" data-hi="आयुर्वेद और कल्याण उत्पाद" data-gu="આયુર્વેદ અને સુસ્થતા ઉત્પાદનો" data-de="Ayurveda und Wellnessprodukte" data-ta="ஆயுர்வேதம் மற்றும் wellness பொருட்கள்"></div></div></label>
             <label class="opt"><input type="radio" name="A1_Product_Category" value="Leather goods"> <div><div class="opt-text" data-en="Leather goods" data-hi="चमड़े की वस्तुएं" data-gu="ચામડાનું માલ" data-de="Lederwaren" data-ta="தோல் பொருட்கள்"></div></div></label>
             <label class="opt"><input type="radio" name="A1_Product_Category" value="Home décor and furnishings"> <div><div class="opt-text" data-en="Home décor and furnishings" data-hi="होम डेकोर और फर्नीचर" data-gu="હોમ ડેકોર અને ફર્નિશિંગ" data-de="Wohndekoration und Einrichtung" data-ta="வீட்டு அலங்கார மற்றும் சாமிபट்டு"></div></div></label>
-            <label class="opt"><input type="radio" name="A1_Product_Category" value="Jewellery and accessories"> <div><div class="opt-text" data-en="Jewellery and accessories" data-hi="गहने और सहायक" data-gu="ઘરણું અને પરિશિષ્ટો" data-de="Schmuck und Accessoires" data-ta="நகை மற்றும் கூடுதல் பொருட்கள்"></div></div></label>
+            <label class="opt"><input type="radio" name="A1_Product_Category" value="Jewellery and accessories"> <div><div class="opt-text" data-en="Jewellery and accessories" data-hi="गहने और सहायक" data-gu="ઘરણું અને પરિશિષ્ટો" data-de="Schmuck und Accessoires" data-ta="நகை மற்றும் கூடுதל பொருட்கள்"></div></div></label>
             <label class="opt"><input type="radio" name="A1_Product_Category" value="Perfumes and attars"> <div><div class="opt-text" data-en="Perfumes and attars" data-hi="इत्र और अत्तर" data-gu="સુગંધ અને અત્તર" data-de="Parfüme und Attare" data-ta="வாசனைத் திரவியம் மற்றும் அத்தர்"></div></div></label>
             <label class="opt"><input type="radio" name="A1_Product_Category" value="Other"> <div><div class="opt-text" data-en="Other" data-hi="अन्य" data-gu="અન્ય" data-de="Sonstiges" data-ta="மற்றவை"></div></div></label>
           </div>
@@ -110,7 +121,7 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
         <div class="divider"></div>
 
         <div class="q-block">
-          <div class="q-label"><span data-en="A2. Where is your business primarily located?" data-hi="A2. आपका व्यवसाय मुख्यतः कहाँ स्थित है?" data-gu="A2. તમારો વ્યવસાય મુખ્યત્વે ક્યાં સ્થિત છે?" data-de="A2. Wo ist Ihr Unternehmen hauptsächlich angesiedelt?" data-ta="A2. உங்கள் வணிகம் முதன்மையாக எங்குள்ளது?"></span> <span class="req">*</span></div>
+          <div class="q-label"><span data-en="A2. Where is your business primarily located?" data-hi="A2. आपका व्यवसाय मुख्यतः कहाँ स्थित है?" data-gu="A2. તમારો વ્યવસાય મુખ્યત્વે ક્યાં સ્થિત છે?" data-de="A2. Wo ist Ihr Unternehmen hauptsächlich angesiedelt?" data-ta="A2. உங்கள் வணிகம் முதன్மையாக எங்குள்ளது?"></span> <span class="req">*</span></div>
           <div class="opt-list">
             <label class="opt"><input type="radio" name="A2_Location" value="Surat, Gujarat"><span class="opt-text">Surat, Gujarat</span></label>
             <label class="opt"><input type="radio" name="A2_Location" value="Ahmedabad, Gujarat"><span class="opt-text">Ahmedabad, Gujarat</span></label>
@@ -121,7 +132,7 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
             <label class="opt"><input type="radio" name="A2_Location" value="Kannauj, Uttar Pradesh"><span class="opt-text">Kannauj, Uttar Pradesh</span></label>
             <label class="opt"><input type="radio" name="A2_Location" value="Delhi NCR"><span class="opt-text">Delhi NCR</span></label>
             <label class="opt"><input type="radio" name="A2_Location" value="Mumbai, Maharashtra"><span class="opt-text">Mumbai, Maharashtra</span></label>
-            <label class="opt"><input type="radio" name="A2_Location" value="Other"><span class="opt-text" data-en="Other" data-hi="अन्य" data-gu="અન્ય" data-de="Sonstiges" data-ta="മറ്റുള്ളവ"></span></label>
+            <label class="opt"><input type="radio" name="A2_Location" value="Other"><span class="opt-text" data-en="Other" data-hi="अन्य" data-gu="અન્ય" data-de="Sonstiges" data-ta="மற்றவை"></span></label>
           </div>
         </div>
 
@@ -130,10 +141,10 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
         <div class="q-block">
           <div class="q-label"><span data-en="A3. Business size?" data-hi="A3. व्यवसाय का आकार?" data-gu="A3. વ્યવસાય કદ?" data-de="A3. Unternehmensgröße?" data-ta="A3. வணிக அளவு?"></span> <span class="req">*</span></div>
           <div class="opt-list">
-            <label class="opt"><input type="radio" name="A3_Business_Size" value="Micro enterprise (< ₹5 cr)"><div><div class="opt-text" data-en="Micro enterprise" data-hi="सूक्ष्म उद्यम" data-gu="માઇક્રો એન્ટરપ્રાઇઝ" data-de="Mikrounternehmen" data-ta="மைக்ரோ வணிகம்"></div></div></label>
+            <label class="opt"><input type="radio" name="A3_Business_Size" value="Micro enterprise (< ₹5 cr)"><div><div class="opt-text" data-en="Micro enterprise" data-hi="सूक्ष्म उद्यम" data-gu="માઇક્રો એન્ટરપ્રાઇઝ" data-de="Mikrounternehmen" data-ta="மைக்రோ வணிகம்"></div></div></label>
             <label class="opt"><input type="radio" name="A3_Business_Size" value="Small enterprise (₹5 - ₹50 cr)"><div><div class="opt-text" data-en="Small enterprise" data-hi="छोटा उद्यम" data-gu="નાનું એન્ટરપ્રાઇઝ" data-de="Kleine Unternehmen" data-ta="சிறிய வணிகம்"></div></div></label>
             <label class="opt"><input type="radio" name="A3_Business_Size" value="Medium enterprise (₹50 - ₹250 cr)"><div><div class="opt-text" data-en="Medium enterprise" data-hi="मध्यम उद्यम" data-gu="મધ્યમ એન્ટરપ્રાઇઝ" data-de="Mittleres Unternehmen" data-ta="மத்திய வணிகம்"></div></div></label>
-            <label class="opt"><input type="radio" name="A3_Business_Size" value="Unregistered / Prefer not to say"><div><div class="opt-text" data-en="Not formally registered / prefer not to say" data-hi="औपचारिक रूप से पंजीकृत नहीं / न बताना पसंद है" data-gu="ઔપચારિક રીતે નોંધાયેલ નથી / કહેવાનું પસંદ નથી" data-de="Nicht offiziell registriert / keine Aussage" data-ta="முறையாக பதிவுசெய்யப்படவில்லை / சொல்ல விரும்பவில்லை"></div></div></label>
+            <label class="opt"><input type="radio" name="A3_Business_Size" value="Unregistered / Prefer not to say"><div><div class="opt-text" data-en="Not formally registered / prefer not to say" data-hi="औपचारिक रूप से पंजीकृत नहीं / न बताना पसंद है" data-gu="ઔપચારિક રીતે નોંધાયેલ નથી / કહેવાનું પસંદ નથી" data-de="Nicht offiziell registriert / keine Aussage" data-ta="முறையாக பதிவுसெய்யப்படவில்லை / சொல్ல விரும్பవిల్లை"></div></div></label>
           </div>
         </div>
 
@@ -146,13 +157,13 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
             <label class="opt"><input type="radio" name="A4_Years_Operating" value="2 to 5 years"><span class="opt-text" data-en="2 to 5 years" data-hi="2 से 5 वर्ष" data-gu="2 થી 5 વર્ષ" data-de="2 bis 5 Jahre" data-ta="2 முதல் 5 வருஷம்"></span></label>
             <label class="opt"><input type="radio" name="A4_Years_Operating" value="6 to 10 years"><span class="opt-text" data-en="6 to 10 years" data-hi="6 से 10 वर्ष" data-gu="6 થી 10 વર્ષ" data-de="6 bis 10 Jahre" data-ta="6 முதல் 10 வருஷம்"></span></label>
             <label class="opt"><input type="radio" name="A4_Years_Operating" value="11 to 20 years"><span class="opt-text" data-en="11 to 20 years" data-hi="11 से 20 वर्ष" data-gu="11 થી 20 વર્ષ" data-de="11 bis 20 Jahre" data-ta="11 முதல் 20 வருஷம்"></span></label>
-            <label class="opt"><input type="radio" name="A4_Years_Operating" value="More than 20 years"><span class="opt-text" data-en="More than 20 years" data-hi="20 वर्ष से अधिक" data-gu="20 વર્ષથી વધુ" data-de="Mehr als 20 Jahre" data-ta="20 வருஷத்திற்கும் அதிகம்"></span></label>
+            <label class="opt"><input type="radio" name="A4_Years_Operating" value="More than 20 years"><span class="opt-text" data-en="More than 20 years" data-hi="20 वर्ष से अधिक" data-gu="20 વર્ષથી વધુ" data-de="Mehr als 20 Jahre" data-ta="20 வருஷத்திற્કום् अधिक"></span></label>
           </div>
         </div>
       </div>
       <div class="nav-row">
         <button type="button" class="btn" onclick="changeLang()">← <span data-en="Change Language" data-hi="भाषा बदलें" data-gu="ભાષા બદલો" data-de="Sprache ändern" data-ta="மொழியை மாற்றவும்"></span></button>
-        <button class="btn btn-primary" type="button" onclick="go(2)"><span data-en="Next" data-hi="अगला" data-gu="આગળ" data-de="Nächste" data-ta="அடுத்தது"></span> →</button>
+        <button class="btn btn-primary" type="button" onclick="go(2)"><span data-en="Next" data-hi="अगला" data-gu="આગળ" data-de="Nächste" data-ta="அடुத్తுదు"></span> →</button>
       </div>
     </div>
 
@@ -163,7 +174,6 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 
 <script>
 let currentLanguage = 'en';
-const pages = 9;
 const labels = {
   en: ['Section A','Section B','Section C','Section D','Section E','Section F','Section G','Section H','Section I'],
   hi: ['खंड A','खंड B','खंड C','खंड D','खंड E','खंड F','खंड G','खंड H','खंड I'],
