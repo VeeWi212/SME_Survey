@@ -44,8 +44,6 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 .progress-fill{height:100%;background:#2563eb;border-radius:2px;transition:width 0.3s}
 .section-count{font-size:12px;color:#64748b;text-align:right;margin-bottom:0.5rem}
 .divider{height:1px;background:#e2e8f0;margin:1rem 0}
-.tag-blue{display:inline-block;background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe;border-radius:4px;font-size:11px;padding:2px 7px;margin-left:6px}
-.tag-yellow{display:inline-block;background:#fefce8;color:#a16207;border:1px solid #fef08a;border-radius:4px;font-size:11px;padding:2px 7px}
 .highlight-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:10px 12px;font-size:12px;color:#166534;margin-top:0.75rem}
 .page{display:none !important}
 .page.active{display:block !important}
@@ -96,74 +94,255 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
   </div>
 
   <!-- FORM WRAPPER START -->
-  <form id="surveyForm" onsubmit="event.preventDefault();">
+  <form id="surveyForm" onsubmit="event.preventDefault();" style="display:none;">
     <input type="hidden" name="Language" id="langField" value="English">
 
+    
     <!-- PAGE 1: Section A -->
     <div class="page" id="p1">
       <div class="section-card">
-        <div class="section-title"><div class="dot"></div><span data-en="Section A — Your business" data-hi="खंड A — आपका व्यवसाय" data-gu="વિભાગ A — તમારો વ્યવસાય" data-de="Abschnitt A — Ihr Unternehmen" data-ta="பிரிவு A — உங்கள் வணிகம்"></span></div>
-
+        <div class="section-title"><div class="dot"></div><span data-en="Section A — Your business">Section A — Your business</span></div>
         <div class="q-block">
-          <div class="q-label"><span data-en="A1. What is your primary product category?" data-hi="A1. आपकी प्राथमिक उत्पाद श्रेणी क्या है?" data-gu="A1. તમારી પ્રાથમિક ઉત્પાદન શ્રેણી શું છે?" data-de="A1. Was ist Ihre primäre Produktkategorie?" data-ta="A1. உங்கள் முதன்மை பொருள் வகை என்ன?"></span> <span class="req">*</span></div>
-          <div class="opt-list">
-            <label class="opt"><input type="radio" name="A1_Product_Category" value="Textiles and apparel"> <div><div class="opt-text" data-en="Textiles and apparel" data-hi="वस्त्र और परिधान" data-gu="ટેક્સટાઈલ્સ અને પોશાક" data-de="Textilien und Bekleidung" data-ta="நூல் மற்றும் ஆடை"></div></div></label>
-            <label class="opt"><input type="radio" name="A1_Product_Category" value="Handicrafts"> <div><div class="opt-text" data-en="Handicrafts" data-hi="हस्तशिल्प" data-gu="હસ્તશિલ્પ" data-de="Kunsthandwerk" data-ta="கைவினை"></div></div></label>
-            <label class="opt"><input type="radio" name="A1_Product_Category" value="Ayurveda and wellness products"> <div><div class="opt-text" data-en="Ayurveda and wellness products" data-hi="आयुर्वेद और कल्याण उत्पाद" data-gu="આયુર્વેદ અને સુસ્થતા ઉત્પાદનો" data-de="Ayurveda und Wellnessprodukte" data-ta="ஆயுர்வேதம் மற்றும் wellness பொருட்கள்"></div></div></label>
-            <label class="opt"><input type="radio" name="A1_Product_Category" value="Leather goods"> <div><div class="opt-text" data-en="Leather goods" data-hi="चमड़े की वस्तुएं" data-gu="ચામડાનું માલ" data-de="Lederwaren" data-ta="தோல் பொருட்கள்"></div></div></label>
-            <label class="opt"><input type="radio" name="A1_Product_Category" value="Home décor and furnishings"> <div><div class="opt-text" data-en="Home décor and furnishings" data-hi="होम डेकोर और फर्नीचर" data-gu="હોમ ડેકોર અને ફર્નિશિંગ" data-de="Wohndekoration und Einrichtung" data-ta="வீட்டு அலங்கார மற்றும் சாமிபट்டு"></div></div></label>
-            <label class="opt"><input type="radio" name="A1_Product_Category" value="Jewellery and accessories"> <div><div class="opt-text" data-en="Jewellery and accessories" data-hi="गहने और सहायक" data-gu="ઘરણું અને પરિશિષ્ટો" data-de="Schmuck und Accessoires" data-ta="நகை மற்றும் கூடுதל பொருட்கள்"></div></div></label>
-            <label class="opt"><input type="radio" name="A1_Product_Category" value="Perfumes and attars"> <div><div class="opt-text" data-en="Perfumes and attars" data-hi="इत्र और अत्तर" data-gu="સુગંધ અને અત્તર" data-de="Parfüme und Attare" data-ta="வாசனைத் திரவியம் மற்றும் அத்தர்"></div></div></label>
-            <label class="opt"><input type="radio" name="A1_Product_Category" value="Other"> <div><div class="opt-text" data-en="Other" data-hi="अन्य" data-gu="અન્ય" data-de="Sonstiges" data-ta="மற்றவை"></div></div></label>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="q-block">
-          <div class="q-label"><span data-en="A2. Where is your business primarily located?" data-hi="A2. आपका व्यवसाय मुख्यतः कहाँ स्थित है?" data-gu="A2. તમારો વ્યવસાય મુખ્યત્વે ક્યાં સ્થિત છે?" data-de="A2. Wo ist Ihr Unternehmen hauptsächlich angesiedelt?" data-ta="A2. உங்கள் வணிகம் முதன్மையாக எங்குள்ளது?"></span> <span class="req">*</span></div>
-          <div class="opt-list">
-            <label class="opt"><input type="radio" name="A2_Location" value="Surat, Gujarat"><span class="opt-text">Surat, Gujarat</span></label>
-            <label class="opt"><input type="radio" name="A2_Location" value="Ahmedabad, Gujarat"><span class="opt-text">Ahmedabad, Gujarat</span></label>
-            <label class="opt"><input type="radio" name="A2_Location" value="Jaipur, Rajasthan"><span class="opt-text">Jaipur, Rajasthan</span></label>
-            <label class="opt"><input type="radio" name="A2_Location" value="Kanpur, Uttar Pradesh"><span class="opt-text">Kanpur, Uttar Pradesh</span></label>
-            <label class="opt"><input type="radio" name="A2_Location" value="Varanasi, Uttar Pradesh"><span class="opt-text">Varanasi, Uttar Pradesh</span></label>
-            <label class="opt"><input type="radio" name="A2_Location" value="Moradabad, Uttar Pradesh"><span class="opt-text">Moradabad, Uttar Pradesh</span></label>
-            <label class="opt"><input type="radio" name="A2_Location" value="Kannauj, Uttar Pradesh"><span class="opt-text">Kannauj, Uttar Pradesh</span></label>
-            <label class="opt"><input type="radio" name="A2_Location" value="Delhi NCR"><span class="opt-text">Delhi NCR</span></label>
-            <label class="opt"><input type="radio" name="A2_Location" value="Mumbai, Maharashtra"><span class="opt-text">Mumbai, Maharashtra</span></label>
-            <label class="opt"><input type="radio" name="A2_Location" value="Other"><span class="opt-text" data-en="Other" data-hi="अन्य" data-gu="અન્ય" data-de="Sonstiges" data-ta="மற்றவை"></span></label>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="q-block">
-          <div class="q-label"><span data-en="A3. Business size?" data-hi="A3. व्यवसाय का आकार?" data-gu="A3. વ્યવસાય કદ?" data-de="A3. Unternehmensgröße?" data-ta="A3. வணிக அளவு?"></span> <span class="req">*</span></div>
-          <div class="opt-list">
-            <label class="opt"><input type="radio" name="A3_Business_Size" value="Micro enterprise (< ₹5 cr)"><div><div class="opt-text" data-en="Micro enterprise" data-hi="सूक्ष्म उद्यम" data-gu="માઇક્રો એન્ટરપ્રાઇઝ" data-de="Mikrounternehmen" data-ta="மைக்రோ வணிகம்"></div></div></label>
-            <label class="opt"><input type="radio" name="A3_Business_Size" value="Small enterprise (₹5 - ₹50 cr)"><div><div class="opt-text" data-en="Small enterprise" data-hi="छोटा उद्यम" data-gu="નાનું એન્ટરપ્રાઇઝ" data-de="Kleine Unternehmen" data-ta="சிறிய வணிகம்"></div></div></label>
-            <label class="opt"><input type="radio" name="A3_Business_Size" value="Medium enterprise (₹50 - ₹250 cr)"><div><div class="opt-text" data-en="Medium enterprise" data-hi="मध्यम उद्यम" data-gu="મધ્યમ એન્ટરપ્રાઇઝ" data-de="Mittleres Unternehmen" data-ta="மத்திய வணிகம்"></div></div></label>
-            <label class="opt"><input type="radio" name="A3_Business_Size" value="Unregistered / Prefer not to say"><div><div class="opt-text" data-en="Not formally registered / prefer not to say" data-hi="औपचारिक रूप से पंजीकृत नहीं / न बताना पसंद है" data-gu="ઔપચારિક રીતે નોંધાયેલ નથી / કહેવાનું પસંદ નથી" data-de="Nicht offiziell registriert / keine Aussage" data-ta="முறையாக பதிவுसெய்யப்படவில்லை / சொல్ல விரும్பవిల్లை"></div></div></label>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="q-block">
-          <div class="q-label"><span data-en="A4. How many years has your business been operating?" data-hi="A4. आपका व्यवसाय कितने वर्षों से चल रहा है?" data-gu="A4. તમારો વ્યવસાય કેટલા વર્ષો ચાલી રહ્યો છે?" data-de="A4. Wie lange ist Ihr Unternehmen in Betrieb?" data-ta="A4. உங்கள் வணிகம் எத்தனை வருஷங்களாக செயல்படுகிறது?"></span> <span class="req">*</span></div>
-          <div class="opt-list">
-            <label class="opt"><input type="radio" name="A4_Years_Operating" value="Less than 2 years"><span class="opt-text" data-en="Less than 2 years" data-hi="2 वर्ष से कम" data-gu="2 વર્ષથી ઓછું" data-de="Weniger als 2 Jahre" data-ta="2 வருஷத்திற்கும் குறைவு"></span></label>
-            <label class="opt"><input type="radio" name="A4_Years_Operating" value="2 to 5 years"><span class="opt-text" data-en="2 to 5 years" data-hi="2 से 5 वर्ष" data-gu="2 થી 5 વર્ષ" data-de="2 bis 5 Jahre" data-ta="2 முதல் 5 வருஷம்"></span></label>
-            <label class="opt"><input type="radio" name="A4_Years_Operating" value="6 to 10 years"><span class="opt-text" data-en="6 to 10 years" data-hi="6 से 10 वर्ष" data-gu="6 થી 10 વર્ષ" data-de="6 bis 10 Jahre" data-ta="6 முதல் 10 வருஷம்"></span></label>
-            <label class="opt"><input type="radio" name="A4_Years_Operating" value="11 to 20 years"><span class="opt-text" data-en="11 to 20 years" data-hi="11 से 20 वर्ष" data-gu="11 થી 20 વર્ષ" data-de="11 bis 20 Jahre" data-ta="11 முதல் 20 வருஷம்"></span></label>
-            <label class="opt"><input type="radio" name="A4_Years_Operating" value="More than 20 years"><span class="opt-text" data-en="More than 20 years" data-hi="20 वर्ष से अधिक" data-gu="20 વર્ષથી વધુ" data-de="Mehr als 20 Jahre" data-ta="20 வருஷத்திற્કום् अधिक"></span></label>
-          </div>
+          <div class="q-label">A1. What is your primary product category? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="A1_Product_Category" value="Textiles and apparel"><span class="opt-text">Textiles and apparel</span></label><label class="opt"><input type="radio" name="A1_Product_Category" value="Handicrafts"><span class="opt-text">Handicrafts</span></label><label class="opt"><input type="radio" name="A1_Product_Category" value="Ayurveda and wellness products"><span class="opt-text">Ayurveda and wellness products</span></label><label class="opt"><input type="radio" name="A1_Product_Category" value="Leather goods"><span class="opt-text">Leather goods</span></label><label class="opt"><input type="radio" name="A1_Product_Category" value="Home décor and furnishings"><span class="opt-text">Home décor and furnishings</span></label><label class="opt"><input type="radio" name="A1_Product_Category" value="Jewellery and accessories"><span class="opt-text">Jewellery and accessories</span></label><label class="opt"><input type="radio" name="A1_Product_Category" value="Perfumes and attars"><span class="opt-text">Perfumes and attars</span></label><label class="opt"><input type="radio" name="A1_Product_Category" value="Other"><span class="opt-text">Other</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">A2. Where is your business primarily located? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="A2_Location" value="Surat, Gujarat"><span class="opt-text">Surat, Gujarat</span></label><label class="opt"><input type="radio" name="A2_Location" value="Ahmedabad, Gujarat"><span class="opt-text">Ahmedabad, Gujarat</span></label><label class="opt"><input type="radio" name="A2_Location" value="Jaipur, Rajasthan"><span class="opt-text">Jaipur, Rajasthan</span></label><label class="opt"><input type="radio" name="A2_Location" value="Kanpur, Uttar Pradesh"><span class="opt-text">Kanpur, Uttar Pradesh</span></label><label class="opt"><input type="radio" name="A2_Location" value="Varanasi, Uttar Pradesh"><span class="opt-text">Varanasi, Uttar Pradesh</span></label><label class="opt"><input type="radio" name="A2_Location" value="Moradabad, Uttar Pradesh"><span class="opt-text">Moradabad, Uttar Pradesh</span></label><label class="opt"><input type="radio" name="A2_Location" value="Kannauj, Uttar Pradesh"><span class="opt-text">Kannauj, Uttar Pradesh</span></label><label class="opt"><input type="radio" name="A2_Location" value="Delhi NCR"><span class="opt-text">Delhi NCR</span></label><label class="opt"><input type="radio" name="A2_Location" value="Mumbai, Maharashtra"><span class="opt-text">Mumbai, Maharashtra</span></label><label class="opt"><input type="radio" name="A2_Location" value="Other"><span class="opt-text">Other</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">A3. Business size? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="A3_Business_Size" value="Micro enterprise (< ₹5 cr)"><span class="opt-text">Micro enterprise</span></label><label class="opt"><input type="radio" name="A3_Business_Size" value="Small enterprise (₹5 - ₹50 cr)"><span class="opt-text">Small enterprise</span></label><label class="opt"><input type="radio" name="A3_Business_Size" value="Medium enterprise (₹50 - ₹250 cr)"><span class="opt-text">Medium enterprise</span></label><label class="opt"><input type="radio" name="A3_Business_Size" value="Unregistered / Prefer not to say"><span class="opt-text">Not formally registered / prefer not to say</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">A4. How many years has your business been operating? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="A4_Years_Operating" value="Less than 2 years"><span class="opt-text">Less than 2 years</span></label><label class="opt"><input type="radio" name="A4_Years_Operating" value="2 to 5 years"><span class="opt-text">2 to 5 years</span></label><label class="opt"><input type="radio" name="A4_Years_Operating" value="6 to 10 years"><span class="opt-text">6 to 10 years</span></label><label class="opt"><input type="radio" name="A4_Years_Operating" value="11 to 20 years"><span class="opt-text">11 to 20 years</span></label><label class="opt"><input type="radio" name="A4_Years_Operating" value="More than 20 years"><span class="opt-text">More than 20 years</span></label></div>
         </div>
       </div>
       <div class="nav-row">
-        <button type="button" class="btn" onclick="changeLang()">← <span data-en="Change Language" data-hi="भाषा बदलें" data-gu="ભાષા બદલો" data-de="Sprache ändern" data-ta="மொழியை மாற்றவும்"></span></button>
-        <button class="btn btn-primary" type="button" onclick="go(2)"><span data-en="Next" data-hi="अगला" data-gu="આગળ" data-de="Nächste" data-ta="அடुத్తுదు"></span> →</button>
+        <button type="button" class="btn" onclick="changeLang()">← <span data-en="Change Language">Change Language</span></button>
+        <button type="button" class="btn btn-primary" onclick="go(2)"><span data-en="Next">Next</span> →</button>
+      </div>
+    </div>
+    
+    <!-- PAGE 2: Section B -->
+    <div class="page" id="p2">
+      <div class="section-card">
+        <div class="section-title"><div class="dot"></div><span data-en="Section B — Export experience">Section B — Export experience</span></div>
+        <div class="q-block">
+          <div class="q-label">B1. What is your current export status? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="B1_Export_Status" value="Currently exporting directly"><span class="opt-text">Currently exporting directly under my own business name</span></label><label class="opt"><input type="radio" name="B1_Export_Status" value="Exporting indirectly"><span class="opt-text">Exporting indirectly (supplying to larger exporters)</span></label><label class="opt"><input type="radio" name="B1_Export_Status" value="Planning to export"><span class="opt-text">Not exporting but planning to start within 1–2 years</span></label><label class="opt"><input type="radio" name="B1_Export_Status" value="Not exporting"><span class="opt-text">Not exporting and not planning to</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">B2. Which regions do you currently export to?</div>
+          <div class="q-hint">Tick all that apply</div>
+          <div class="opt-list"><label class="opt"><input type="checkbox" name="B2_Export_Regions" value="Domestic only"><span class="opt-text">Domestic market only</span></label><label class="opt"><input type="checkbox" name="B2_Export_Regions" value="EU/UK"><span class="opt-text">EU / UK</span></label><label class="opt"><input type="checkbox" name="B2_Export_Regions" value="USA"><span class="opt-text">USA</span></label><label class="opt"><input type="checkbox" name="B2_Export_Regions" value="Middle East"><span class="opt-text">Middle East</span></label><label class="opt"><input type="checkbox" name="B2_Export_Regions" value="Southeast Asia"><span class="opt-text">Southeast Asia</span></label><label class="opt"><input type="checkbox" name="B2_Export_Regions" value="Africa"><span class="opt-text">Africa</span></label><label class="opt"><input type="checkbox" name="B2_Export_Regions" value="Other"><span class="opt-text">Other</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">B3. Have you used any trade preference schemes (e.g., GSP) for EU exports? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="B3_GSP_Usage" value="Yes, regularly"><span class="opt-text">Yes, regularly</span></label><label class="opt"><input type="radio" name="B3_GSP_Usage" value="Yes, occasionally"><span class="opt-text">Yes, occasionally</span></label><label class="opt"><input type="radio" name="B3_GSP_Usage" value="Aware but never used"><span class="opt-text">Aware of but never used</span></label><label class="opt"><input type="radio" name="B3_GSP_Usage" value="Not aware"><span class="opt-text">Not aware of any schemes</span></label><label class="opt"><input type="radio" name="B3_GSP_Usage" value="Not applicable"><span class="opt-text">Not applicable</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">B4. What is your approximate annual export turnover? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="B4_Export_Turnover" value="No exports yet"><span class="opt-text">No exports yet</span></label><label class="opt"><input type="radio" name="B4_Export_Turnover" value="Below ₹1 crore"><span class="opt-text">Below ₹1 crore</span></label><label class="opt"><input type="radio" name="B4_Export_Turnover" value="₹1–5 crore"><span class="opt-text">₹1–5 crore</span></label><label class="opt"><input type="radio" name="B4_Export_Turnover" value="₹5–25 crore"><span class="opt-text">₹5–25 crore</span></label><label class="opt"><input type="radio" name="B4_Export_Turnover" value="Above ₹25 crore"><span class="opt-text">Above ₹25 crore</span></label><label class="opt"><input type="radio" name="B4_Export_Turnover" value="Prefer not to say"><span class="opt-text">Prefer not to say</span></label></div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn" onclick="go(1)">← <span data-en="Previous">Previous</span></button>
+        <button type="button" class="btn btn-primary" onclick="go(3)"><span data-en="Next">Next</span> →</button>
+      </div>
+    </div>
+    
+    <!-- PAGE 3: Section C -->
+    <div class="page" id="p3">
+      <div class="section-card">
+        <div class="section-title"><div class="dot"></div><span data-en="Section C — Regulatory readiness">Section C — Regulatory readiness</span></div>
+        <div class="q-hint">SCRI Dimension 1: Standards, certifications, and compliance capacity</div><div class="q-block">
+          <div class="q-label">C1. Which of the following certifications does your business currently hold?</div>
+          <div class="q-hint">Tick all that apply</div>
+          <div class="opt-list"><label class="opt"><input type="checkbox" name="C1_Certifications" value="ISO 9001"><span class="opt-text">ISO 9001 (Quality Management)</span></label><label class="opt"><input type="checkbox" name="C1_Certifications" value="ISO 14001"><span class="opt-text">ISO 14001 (Environmental)</span></label><label class="opt"><input type="checkbox" name="C1_Certifications" value="GOTS"><span class="opt-text">GOTS (Global Organic Textile Standard)</span></label><label class="opt"><input type="checkbox" name="C1_Certifications" value="REACH compliance"><span class="opt-text">REACH compliance</span></label><label class="opt"><input type="checkbox" name="C1_Certifications" value="CE marking"><span class="opt-text">CE marking</span></label><label class="opt"><input type="checkbox" name="C1_Certifications" value="BSCI/SEDEX"><span class="opt-text">BSCI / SEDEX (Social Compliance)</span></label><label class="opt"><input type="checkbox" name="C1_Certifications" value="GI tag"><span class="opt-text">GI (Geographical Indication) tag</span></label><label class="opt"><input type="checkbox" name="C1_Certifications" value="None"><span class="opt-text">None of the above</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">C2. How aware are you of EU product standards and compliance requirements for your sector? <span class="req">*</span></div>
+          
+          <div class="likert-dots"><label class="l-dot"><input type="radio" name="C2_Standards_Awareness" value="Very aware"><span>Very aware</span></label><label class="l-dot"><input type="radio" name="C2_Standards_Awareness" value="Somewhat aware"><span>Somewhat aware</span></label><label class="l-dot"><input type="radio" name="C2_Standards_Awareness" value="Partially aware"><span>Partially aware</span></label><label class="l-dot"><input type="radio" name="C2_Standards_Awareness" value="Not aware"><span>Not aware</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">C3. Has your business ever had a consignment rejected or held at EU borders? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="C3_Border_Rejections" value="Yes, multiple times"><span class="opt-text">Yes, multiple times</span></label><label class="opt"><input type="radio" name="C3_Border_Rejections" value="Yes, once"><span class="opt-text">Yes, once</span></label><label class="opt"><input type="radio" name="C3_Border_Rejections" value="No, never"><span class="opt-text">No, never</span></label><label class="opt"><input type="radio" name="C3_Border_Rejections" value="Don't know"><span class="opt-text">Don't know / Not applicable</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">C4. How would you rate your ability to meet EU documentation and certification requirements? <span class="req">*</span></div>
+          
+          <div class="likert-dots"><label class="l-dot"><input type="radio" name="C4_Documentation_Ability" value="Strong"><span>Strong</span></label><label class="l-dot"><input type="radio" name="C4_Documentation_Ability" value="Moderate"><span>Moderate</span></label><label class="l-dot"><input type="radio" name="C4_Documentation_Ability" value="Weak"><span>Weak</span></label><label class="l-dot"><input type="radio" name="C4_Documentation_Ability" value="Very weak / Not applicable"><span>Very weak / Not applicable</span></label></div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn" onclick="go(2)">← <span data-en="Previous">Previous</span></button>
+        <button type="button" class="btn btn-primary" onclick="go(4)"><span data-en="Next">Next</span> →</button>
+      </div>
+    </div>
+    
+    <!-- PAGE 4: Section D -->
+    <div class="page" id="p4">
+      <div class="section-card">
+        <div class="section-title"><div class="dot"></div><span data-en="Section D — Logistical readiness">Section D — Logistical readiness</span></div>
+        <div class="q-hint">SCRI Dimension 2: Shipping, customs, warehousing, and delivery capability</div><div class="q-block">
+          <div class="q-label">D1. How do you primarily ship your export orders? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="D1_Shipping_Method" value="Air freight"><span class="opt-text">Air freight</span></label><label class="opt"><input type="radio" name="D1_Shipping_Method" value="Sea freight"><span class="opt-text">Sea freight</span></label><label class="opt"><input type="radio" name="D1_Shipping_Method" value="Courier/express"><span class="opt-text">Courier / express (DHL, FedEx, etc.)</span></label><label class="opt"><input type="radio" name="D1_Shipping_Method" value="Land transport"><span class="opt-text">Land transport</span></label><label class="opt"><input type="radio" name="D1_Shipping_Method" value="Not applicable"><span class="opt-text">Not applicable</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">D2. What is your typical order-to-delivery lead time for export shipments? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="D2_Lead_Time" value="Under 7 days"><span class="opt-text">Under 7 days</span></label><label class="opt"><input type="radio" name="D2_Lead_Time" value="7–14 days"><span class="opt-text">7–14 days</span></label><label class="opt"><input type="radio" name="D2_Lead_Time" value="15–30 days"><span class="opt-text">15–30 days</span></label><label class="opt"><input type="radio" name="D2_Lead_Time" value="31–60 days"><span class="opt-text">31–60 days</span></label><label class="opt"><input type="radio" name="D2_Lead_Time" value="Over 60 days"><span class="opt-text">Over 60 days</span></label><label class="opt"><input type="radio" name="D2_Lead_Time" value="Not applicable"><span class="opt-text">Not applicable</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">D3. How would you rate your logistics infrastructure (warehousing, packaging, port access)? <span class="req">*</span></div>
+          
+          <div class="likert-dots"><label class="l-dot"><input type="radio" name="D3_Logistics_Infrastructure" value="Strong"><span>Strong</span></label><label class="l-dot"><input type="radio" name="D3_Logistics_Infrastructure" value="Moderate"><span>Moderate</span></label><label class="l-dot"><input type="radio" name="D3_Logistics_Infrastructure" value="Weak"><span>Weak</span></label><label class="l-dot"><input type="radio" name="D3_Logistics_Infrastructure" value="Very weak"><span>Very weak</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">D4. Have you experienced customs-related delays for export shipments? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="D4_Customs_Delays" value="Frequently"><span class="opt-text">Frequently</span></label><label class="opt"><input type="radio" name="D4_Customs_Delays" value="Occasionally"><span class="opt-text">Occasionally</span></label><label class="opt"><input type="radio" name="D4_Customs_Delays" value="Rarely"><span class="opt-text">Rarely</span></label><label class="opt"><input type="radio" name="D4_Customs_Delays" value="Never"><span class="opt-text">Never</span></label><label class="opt"><input type="radio" name="D4_Customs_Delays" value="Not applicable"><span class="opt-text">Not applicable</span></label></div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn" onclick="go(3)">← <span data-en="Previous">Previous</span></button>
+        <button type="button" class="btn btn-primary" onclick="go(5)"><span data-en="Next">Next</span> →</button>
+      </div>
+    </div>
+    
+    <!-- PAGE 5: Section E -->
+    <div class="page" id="p5">
+      <div class="section-card">
+        <div class="section-title"><div class="dot"></div><span data-en="Section E — Digital readiness">Section E — Digital readiness</span></div>
+        <div class="q-hint">SCRI Dimension 3: E-documentation, traceability, and digital compliance tools</div><div class="q-block">
+          <div class="q-label">E1. Which digital tools does your business currently use?</div>
+          <div class="q-hint">Tick all that apply</div>
+          <div class="opt-list"><label class="opt"><input type="checkbox" name="E1_Digital_Tools" value="Email"><span class="opt-text">Email communication</span></label><label class="opt"><input type="checkbox" name="E1_Digital_Tools" value="WhatsApp Business"><span class="opt-text">WhatsApp Business</span></label><label class="opt"><input type="checkbox" name="E1_Digital_Tools" value="Website"><span class="opt-text">Company website</span></label><label class="opt"><input type="checkbox" name="E1_Digital_Tools" value="E-commerce platform"><span class="opt-text">E-commerce platform (Amazon, Flipkart, etc.)</span></label><label class="opt"><input type="checkbox" name="E1_Digital_Tools" value="Accounting software"><span class="opt-text">Accounting software (Tally, Zoho, etc.)</span></label><label class="opt"><input type="checkbox" name="E1_Digital_Tools" value="Export documentation software"><span class="opt-text">Export documentation software</span></label><label class="opt"><input type="checkbox" name="E1_Digital_Tools" value="ERP/CRM"><span class="opt-text">ERP / CRM system</span></label><label class="opt"><input type="checkbox" name="E1_Digital_Tools" value="None"><span class="opt-text">None of the above</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">E2. Can you generate digital customs and origin documents (e.g., e-COO, digital origin statements)? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="E2_Digital_Documents" value="Yes, routinely"><span class="opt-text">Yes, routinely</span></label><label class="opt"><input type="radio" name="E2_Digital_Documents" value="Yes, with difficulty"><span class="opt-text">Yes, but with difficulty</span></label><label class="opt"><input type="radio" name="E2_Digital_Documents" value="No, planning to"><span class="opt-text">No, but planning to</span></label><label class="opt"><input type="radio" name="E2_Digital_Documents" value="No, not planning"><span class="opt-text">No, and not planning to</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">E3. How would you rate your digital infrastructure for export compliance? <span class="req">*</span></div>
+          
+          <div class="likert-dots"><label class="l-dot"><input type="radio" name="E3_Digital_Infrastructure" value="Strong"><span>Strong</span></label><label class="l-dot"><input type="radio" name="E3_Digital_Infrastructure" value="Moderate"><span>Moderate</span></label><label class="l-dot"><input type="radio" name="E3_Digital_Infrastructure" value="Weak"><span>Weak</span></label><label class="l-dot"><input type="radio" name="E3_Digital_Infrastructure" value="Very weak"><span>Very weak</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">E4. Are you familiar with the EU's digital customs and traceability requirements? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="E4_EU_Digital_Awareness" value="Yes, fully"><span class="opt-text">Yes, fully</span></label><label class="opt"><input type="radio" name="E4_EU_Digital_Awareness" value="Yes, partially"><span class="opt-text">Yes, partially</span></label><label class="opt"><input type="radio" name="E4_EU_Digital_Awareness" value="Heard of"><span class="opt-text">Heard of but not familiar</span></label><label class="opt"><input type="radio" name="E4_EU_Digital_Awareness" value="Not aware"><span class="opt-text">Not aware</span></label></div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn" onclick="go(4)">← <span data-en="Previous">Previous</span></button>
+        <button type="button" class="btn btn-primary" onclick="go(6)"><span data-en="Next">Next</span> →</button>
+      </div>
+    </div>
+    
+    <!-- PAGE 6: Section F -->
+    <div class="page" id="p6">
+      <div class="section-card">
+        <div class="section-title"><div class="dot"></div><span data-en="Section F — Financial readiness">Section F — Financial readiness</span></div>
+        <div class="q-hint">SCRI Dimension 4: Working capital, trade finance, and certification affordability</div><div class="q-block">
+          <div class="q-label">F1. How would you rate your access to working capital for export orders? <span class="req">*</span></div>
+          
+          <div class="likert-dots"><label class="l-dot"><input type="radio" name="F1_Working_Capital" value="Strong"><span>Strong</span></label><label class="l-dot"><input type="radio" name="F1_Working_Capital" value="Moderate"><span>Moderate</span></label><label class="l-dot"><input type="radio" name="F1_Working_Capital" value="Weak"><span>Weak</span></label><label class="l-dot"><input type="radio" name="F1_Working_Capital" value="Very weak"><span>Very weak</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">F2. Have you used trade finance instruments (e.g., letters of credit, export credit, invoice discounting)? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="F2_Trade_Finance" value="Yes, regularly"><span class="opt-text">Yes, regularly</span></label><label class="opt"><input type="radio" name="F2_Trade_Finance" value="Yes, occasionally"><span class="opt-text">Yes, occasionally</span></label><label class="opt"><input type="radio" name="F2_Trade_Finance" value="Aware but never used"><span class="opt-text">Aware of but never used</span></label><label class="opt"><input type="radio" name="F2_Trade_Finance" value="Not aware"><span class="opt-text">Not aware of these instruments</span></label><label class="opt"><input type="radio" name="F2_Trade_Finance" value="Not applicable"><span class="opt-text">Not applicable</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">F3. Can your business afford the cost of EU certifications and compliance testing? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="F3_Certification_Affordability" value="Yes, easily"><span class="opt-text">Yes, easily</span></label><label class="opt"><input type="radio" name="F3_Certification_Affordability" value="Yes, with difficulty"><span class="opt-text">Yes, but with difficulty</span></label><label class="opt"><input type="radio" name="F3_Certification_Affordability" value="No, prohibitive"><span class="opt-text">No, costs are prohibitive</span></label><label class="opt"><input type="radio" name="F3_Certification_Affordability" value="Don't know"><span class="opt-text">Don't know / Not applicable</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">F4. What is your primary source of export financing? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="F4_Financing_Source" value="Bank loan"><span class="opt-text">Bank loan</span></label><label class="opt"><input type="radio" name="F4_Financing_Source" value="Government scheme"><span class="opt-text">Government scheme (CGTMSE, etc.)</span></label><label class="opt"><input type="radio" name="F4_Financing_Source" value="Internal funds"><span class="opt-text">Internal funds / retained earnings</span></label><label class="opt"><input type="radio" name="F4_Financing_Source" value="Buyer advance"><span class="opt-text">Buyer advance / payment</span></label><label class="opt"><input type="radio" name="F4_Financing_Source" value="Other"><span class="opt-text">Other</span></label><label class="opt"><input type="radio" name="F4_Financing_Source" value="Not applicable"><span class="opt-text">Not applicable</span></label></div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn" onclick="go(5)">← <span data-en="Previous">Previous</span></button>
+        <button type="button" class="btn btn-primary" onclick="go(7)"><span data-en="Next">Next</span> →</button>
+      </div>
+    </div>
+    
+    <!-- PAGE 7: Section G -->
+    <div class="page" id="p7">
+      <div class="section-card">
+        <div class="section-title"><div class="dot"></div><span data-en="Section G — Barriers and challenges">Section G — Barriers and challenges</span></div>
+        <div class="q-block">
+          <div class="q-label">G1. What are the biggest barriers to exporting to the EU?</div>
+          <div class="q-hint">Tick up to 3</div>
+          <div class="opt-list"><label class="opt"><input type="checkbox" name="G1_Barriers" value="Meeting EU standards"><span class="opt-text">Meeting EU product standards</span></label><label class="opt"><input type="checkbox" name="G1_Barriers" value="Certification costs"><span class="opt-text">Certification and testing costs</span></label><label class="opt"><input type="checkbox" name="G1_Barriers" value="Complex documentation"><span class="opt-text">Complex documentation requirements</span></label><label class="opt"><input type="checkbox" name="G1_Barriers" value="Logistics costs"><span class="opt-text">Logistics and shipping costs</span></label><label class="opt"><input type="checkbox" name="G1_Barriers" value="Lack of market knowledge"><span class="opt-text">Lack of market knowledge</span></label><label class="opt"><input type="checkbox" name="G1_Barriers" value="Limited digital capability"><span class="opt-text">Limited digital capability</span></label><label class="opt"><input type="checkbox" name="G1_Barriers" value="Access to trade finance"><span class="opt-text">Access to trade finance</span></label><label class="opt"><input type="checkbox" name="G1_Barriers" value="Finding reliable buyers"><span class="opt-text">Finding reliable buyers</span></label><label class="opt"><input type="checkbox" name="G1_Barriers" value="Language barriers"><span class="opt-text">Language barriers</span></label><label class="opt"><input type="checkbox" name="G1_Barriers" value="Customs delays"><span class="opt-text">Customs delays</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">G2. Which single barrier do you consider most difficult to overcome? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="G2_Most_Difficult" value="Standards compliance"><span class="opt-text">Standards compliance</span></label><label class="opt"><input type="radio" name="G2_Most_Difficult" value="Financial constraints"><span class="opt-text">Financial constraints</span></label><label class="opt"><input type="radio" name="G2_Most_Difficult" value="Logistics infrastructure"><span class="opt-text">Logistics infrastructure</span></label><label class="opt"><input type="radio" name="G2_Most_Difficult" value="Digital capability gaps"><span class="opt-text">Digital capability gaps</span></label><label class="opt"><input type="radio" name="G2_Most_Difficult" value="Market knowledge"><span class="opt-text">Market knowledge</span></label><label class="opt"><input type="radio" name="G2_Most_Difficult" value="Documentation burden"><span class="opt-text">Documentation burden</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">G3. Have you received support from any export promotion agency? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="G3_Export_Promotion" value="Yes, helpful"><span class="opt-text">Yes, and it was helpful</span></label><label class="opt"><input type="radio" name="G3_Export_Promotion" value="Yes, limited impact"><span class="opt-text">Yes, but limited impact</span></label><label class="opt"><input type="radio" name="G3_Export_Promotion" value="No, aware of agencies"><span class="opt-text">No, but aware of such agencies</span></label><label class="opt"><input type="radio" name="G3_Export_Promotion" value="No, not aware"><span class="opt-text">No, not aware of any</span></label></div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn" onclick="go(6)">← <span data-en="Previous">Previous</span></button>
+        <button type="button" class="btn btn-primary" onclick="go(8)"><span data-en="Next">Next</span> →</button>
+      </div>
+    </div>
+    
+    <!-- PAGE 8: Section H -->
+    <div class="page" id="p8">
+      <div class="section-card">
+        <div class="section-title"><div class="dot"></div><span data-en="Section H — FTA awareness and platform interest">Section H — FTA awareness and platform interest</span></div>
+        <div class="q-block">
+          <div class="q-label">H1. Are you aware of the 2026 EU–India Free Trade Agreement? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="H1_FTA_Awareness" value="Yes, understand implications"><span class="opt-text">Yes, and I understand its implications for my business</span></label><label class="opt"><input type="radio" name="H1_FTA_Awareness" value="Yes, don't know details"><span class="opt-text">Yes, but I don't know the details</span></label><label class="opt"><input type="radio" name="H1_FTA_Awareness" value="Heard briefly"><span class="opt-text">Heard about it briefly</span></label><label class="opt"><input type="radio" name="H1_FTA_Awareness" value="Not aware"><span class="opt-text">Not aware</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">H2. Do you expect the FTA to benefit your business? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="H2_FTA_Benefit" value="Yes, significantly"><span class="opt-text">Yes, significantly</span></label><label class="opt"><input type="radio" name="H2_FTA_Benefit" value="Yes, moderately"><span class="opt-text">Yes, moderately</span></label><label class="opt"><input type="radio" name="H2_FTA_Benefit" value="Uncertain"><span class="opt-text">Uncertain</span></label><label class="opt"><input type="radio" name="H2_FTA_Benefit" value="No"><span class="opt-text">No</span></label><label class="opt"><input type="radio" name="H2_FTA_Benefit" value="Don't know enough"><span class="opt-text">Don't know enough to say</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">H3. What support would most help your business prepare for EU export under the FTA?</div>
+          <div class="q-hint">Tick all that apply</div>
+          <div class="opt-list"><label class="opt"><input type="checkbox" name="H3_Support_Needed" value="Financial assistance"><span class="opt-text">Financial assistance for certification</span></label><label class="opt"><input type="checkbox" name="H3_Support_Needed" value="Digital tools"><span class="opt-text">Digital tools for compliance management</span></label><label class="opt"><input type="checkbox" name="H3_Support_Needed" value="Training on EU standards"><span class="opt-text">Training on EU standards</span></label><label class="opt"><input type="checkbox" name="H3_Support_Needed" value="Logistics support"><span class="opt-text">Logistics support</span></label><label class="opt"><input type="checkbox" name="H3_Support_Needed" value="Buyer matchmaking"><span class="opt-text">Buyer matchmaking</span></label><label class="opt"><input type="checkbox" name="H3_Support_Needed" value="Export documentation assistance"><span class="opt-text">Export documentation assistance</span></label><label class="opt"><input type="checkbox" name="H3_Support_Needed" value="Market research"><span class="opt-text">Market research and intelligence</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">H4. Would you be interested in a digital platform that helps you manage EU export compliance, documentation, and logistics? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="H4_Platform_Interest" value="Yes, definitely"><span class="opt-text">Yes, definitely</span></label><label class="opt"><input type="radio" name="H4_Platform_Interest" value="Maybe"><span class="opt-text">Maybe — I need more information</span></label><label class="opt"><input type="radio" name="H4_Platform_Interest" value="No"><span class="opt-text">No</span></label><label class="opt"><input type="radio" name="H4_Platform_Interest" value="Already use similar"><span class="opt-text">I already use something similar</span></label></div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn" onclick="go(7)">← <span data-en="Previous">Previous</span></button>
+        <button type="button" class="btn btn-primary" onclick="go(9)"><span data-en="Next">Next</span> →</button>
+      </div>
+    </div>
+    
+    <!-- PAGE 9: Section I -->
+    <div class="page" id="p9">
+      <div class="section-card">
+        <div class="section-title"><div class="dot"></div><span data-en="Section I — Self-assessment and feedback">Section I — Self-assessment and feedback</span></div>
+        <div class="q-block">
+          <div class="q-label">I1. Overall, how prepared is your business to export to the EU under the FTA? <span class="req">*</span></div>
+          
+          <div class="likert-dots"><label class="l-dot"><input type="radio" name="I1_Preparedness" value="Fully prepared"><span>Fully prepared</span></label><label class="l-dot"><input type="radio" name="I1_Preparedness" value="Mostly prepared"><span>Mostly prepared</span></label><label class="l-dot"><input type="radio" name="I1_Preparedness" value="Partially prepared"><span>Partially prepared</span></label><label class="l-dot"><input type="radio" name="I1_Preparedness" value="Not prepared"><span>Not prepared</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">I2. Which area do you most need to improve to be export-ready? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="I2_Improvement_Priority" value="Regulatory compliance"><span class="opt-text">Regulatory compliance</span></label><label class="opt"><input type="radio" name="I2_Improvement_Priority" value="Logistics infrastructure"><span class="opt-text">Logistics infrastructure</span></label><label class="opt"><input type="radio" name="I2_Improvement_Priority" value="Digital capability"><span class="opt-text">Digital capability</span></label><label class="opt"><input type="radio" name="I2_Improvement_Priority" value="Financial capacity"><span class="opt-text">Financial capacity</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">I3. Would you be willing to participate in a follow-up interview (15–20 minutes)? <span class="req">*</span></div>
+          
+          <div class="opt-list"><label class="opt"><input type="radio" name="I3_Interview_Willingness" value="Yes"><span class="opt-text">Yes</span></label><label class="opt"><input type="radio" name="I3_Interview_Willingness" value="No"><span class="opt-text">No</span></label></div>
+        </div><div class="divider"></div><div class="q-block">
+          <div class="q-label">I4. Any additional comments about your export readiness or this survey?</div>
+          
+          <textarea class="text-field" name="I4_Comments" rows="3" placeholder="Type your answer here..."></textarea>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button type="button" class="btn" onclick="go(8)">← <span data-en="Previous">Previous</span></button>
+        <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitForm()"><span data-en="Submit Survey">Submit Survey</span></button>
       </div>
     </div>
 
@@ -196,6 +375,18 @@ function changeLang() {
   document.getElementById('p-lang').classList.add('active');
 }
 
+// Enforce max-3 checkbox limit on G1
+document.addEventListener('change', function(e) {
+  if (e.target.name === 'G1_Barriers' && e.target.checked) {
+    const checked = document.querySelectorAll('input[name="G1_Barriers"]:checked');
+    if (checked.length > 3) {
+      e.target.checked = false;
+      e.target.closest('.opt').style.borderColor = '#ef4444';
+      setTimeout(() => { e.target.closest('.opt').style.borderColor = ''; }, 1500);
+    }
+  }
+});
+
 function translatePage() {
   const elements = document.querySelectorAll('[data-en]');
   elements.forEach(el => {
@@ -207,7 +398,9 @@ function translatePage() {
 function go(n) {
   const pages = document.querySelectorAll('#surveyForm .page');
   pages.forEach(p => p.classList.remove('active'));
-  document.getElementById('p' + n).classList.add('active');
+  const target = document.getElementById('p' + n);
+  if (!target) return;
+  target.classList.add('active');
   document.getElementById('prog').style.width = Math.round((n / 9) * 100) + '%';
   const label = labels[currentLanguage][n - 1] || 'Section';
   document.getElementById('pg-count').textContent = label + ' — ' + n + ' of 9';
@@ -231,8 +424,9 @@ function submitForm() {
   });
 
   const submitBtn = document.getElementById('submitBtn');
+  if (!submitBtn) return;
   const originalBtnText = submitBtn.textContent;
-  submitBtn.textContent = currentLanguage === 'en' ? "Sending..." : currentLanguage === 'hi' ? "भेजा जा रहा है..." : "Please wait";
+  submitBtn.textContent = "Sending...";
   submitBtn.disabled = true;
 
   fetch("https://formsubmit.co/ajax/233412@edu.bbw-hochschule.de", {
