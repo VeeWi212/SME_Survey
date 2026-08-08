@@ -144,7 +144,7 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 
         <div class="q-block">
           <div class="q-label">B1. Does your business currently export products outside India? <span class="req">*</span></div>
-          <div class="skip-note">Your answer here determines which sections you see next. Non-exporters skip to Section C.</div>
+          <div class="skip-note">Your answer determines what you see next: current exporters and active planners will also rate their EU-export readiness in Sections D–G; if you haven't considered exporting yet, you'll skip straight from Section C to the platform-interest questions in Section H.</div>
           <div class="opt-list" style="margin-top:8px">
             <label class="opt"><input type="radio" name="B1_Currently_Export" value="Yes - regularly"><span class="opt-text">Yes and we export regularly (multiple times per year)</span></label>
             <label class="opt"><input type="radio" name="B1_Currently_Export" value="Yes - occasionally"><span class="opt-text">Yes and we export occasionally (once or twice per year)</span></label>
@@ -241,7 +241,8 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
           <div class="opt-list">
             <label class="opt"><input type="checkbox" name="C3_Barriers[]" value="EU Safety & Quality Regs"><span class="opt-text">EU safety and quality regulations</span></label>
             <label class="opt"><input type="checkbox" name="C3_Barriers[]" value="High Shipping Costs"><span class="opt-text">High international shipping and logistics costs</span></label>
-            <label class="opt"><input type="checkbox" name="C3_Barriers[]" value="No EU Buyer Relationships"><span class="opt-text">No established relationships with European buyers</span></label>
+            <label class="opt"><input type="checkbox" name="C3_Barriers[]" value="Finding EU Customers"><span class="opt-text">Difficulty finding any EU buyers or customers in the first place</span></label>
+            <label class="opt"><input type="checkbox" name="C3_Barriers[]" value="EU Leads Not Converting"><span class="opt-text">I have some EU leads or contacts but have not converted them into orders</span></label>
             <label class="opt"><input type="checkbox" name="C3_Barriers[]" value="Packaging Standards"><span class="opt-text">Packaging not meeting EU standards</span></label>
             <label class="opt"><input type="checkbox" name="C3_Barriers[]" value="Language Barriers"><span class="opt-text">Language and communication barriers</span></label>
             <label class="opt"><input type="checkbox" name="C3_Barriers[]" value="Payment Issues"><span class="opt-text">Difficulty receiving international payments</span></label>
@@ -253,7 +254,7 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
       </div>
       <div class="nav-row">
         <button class="btn" type="button" onclick="go(2)">← Back</button>
-        <button class="btn btn-primary" type="button" onclick="go(4)">Next →</button>
+        <button class="btn btn-primary" type="button" onclick="goFromC()">Next →</button>
       </div>
     </div>
 
@@ -635,39 +636,86 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
         <div class="divider"></div>
 
         <div class="q-block">
-          <div class="q-label">H2. How interested would you be in a platform where you ship products to one India hub and it handles everything?</div>
+          <div class="q-label">H2. Have you sold or listed products through any of these platforms before?</div>
+          <div class="q-hint">Select all that apply</div>
           <div class="opt-list">
-            <label class="opt"><input type="radio" name="H2_Hub_Platform_Interest" value="Very interested"><span class="opt-text">Very interested and I would register as soon as it is available</span></label>
-            <label class="opt"><input type="radio" name="H2_Hub_Platform_Interest" value="Interested (Fee dependent)"><span class="opt-text">Interested and I would want to know more about fees first</span></label>
-            <label class="opt"><input type="radio" name="H2_Hub_Platform_Interest" value="Neutral"><span class="opt-text">Neutral and depends entirely on the commission</span></label>
-            <label class="opt"><input type="radio" name="H2_Hub_Platform_Interest" value="Not very interested"><span class="opt-text">Not very interested because I prefer to control my own export process</span></label>
-            <label class="opt"><input type="radio" name="H2_Hub_Platform_Interest" value="Not interested at all"><span class="opt-text">Not interested at all</span></label>
+            <label class="opt"><input type="checkbox" name="H2_Platform_Experience[]" value="Amazon Global Selling"><span class="opt-text">Amazon Global Selling</span></label>
+            <label class="opt"><input type="checkbox" name="H2_Platform_Experience[]" value="Alibaba.com"><span class="opt-text">Alibaba.com</span></label>
+            <label class="opt"><input type="checkbox" name="H2_Platform_Experience[]" value="IndiaMART Export"><span class="opt-text">IndiaMART (export / global buyers)</span></label>
+            <label class="opt"><input type="checkbox" name="H2_Platform_Experience[]" value="Flipkart"><span class="opt-text">Flipkart</span></label>
+            <label class="opt"><input type="checkbox" name="H2_Platform_Experience[]" value="Meesho"><span class="opt-text">Meesho</span></label>
+            <label class="opt"><input type="checkbox" name="H2_Platform_Experience[]" value="Shein Marketplace"><span class="opt-text">Shein Marketplace</span></label>
+            <label class="opt"><input type="checkbox" name="H2_Platform_Experience[]" value="eBay"><span class="opt-text">eBay</span></label>
+            <label class="opt"><input type="checkbox" name="H2_Platform_Experience[]" value="None of these"><span class="opt-text">None of these</span></label>
+          </div>
+          <textarea class="text-field" name="H2b_Platform_Experience_Notes" rows="2" maxlength="200" style="margin-top:8px" placeholder="Optional: what worked well, or what was frustrating, about any of these?"></textarea>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="q-block">
+          <div class="q-label">H3. If a digital platform for EU export existed, which features would matter most to you?</div>
+          <div class="q-hint">Select your top three</div>
+          <div class="opt-list">
+            <label class="opt"><input type="checkbox" name="H3_Platform_Features[]" value="Automated Customs Docs"><span class="opt-text">Automated customs and export documentation</span></label>
+            <label class="opt"><input type="checkbox" name="H3_Platform_Features[]" value="EU Listing Translation"><span class="opt-text">Product listing and translation into EU languages</span></label>
+            <label class="opt"><input type="checkbox" name="H3_Platform_Features[]" value="EUR/USD Payments"><span class="opt-text">EU-compliant payment processing (EUR / USD settlement)</span></label>
+            <label class="opt"><input type="checkbox" name="H3_Platform_Features[]" value="EU Warehousing & Fulfilment"><span class="opt-text">Warehousing and fulfilment within the EU</span></label>
+            <label class="opt"><input type="checkbox" name="H3_Platform_Features[]" value="Returns Handling"><span class="opt-text">Managing returns from EU customers</span></label>
+            <label class="opt"><input type="checkbox" name="H3_Platform_Features[]" value="Shipment Tracking"><span class="opt-text">Real-time shipment tracking</span></label>
+            <label class="opt"><input type="checkbox" name="H3_Platform_Features[]" value="Buyer Messaging"><span class="opt-text">Buyer messaging and dispute resolution</span></label>
+            <label class="opt"><input type="checkbox" name="H3_Platform_Features[]" value="Marketing & Matchmaking"><span class="opt-text">Marketing support and buyer matchmaking</span></label>
           </div>
         </div>
 
         <div class="divider"></div>
 
         <div class="q-block">
-          <div class="q-label">H3. Maximum commission you would accept for such a platform?</div>
+          <div class="q-label">H4. How interested would you be in a platform where you ship products to one India hub and it handles everything?</div>
           <div class="opt-list">
-            <label class="opt"><input type="radio" name="H3_Max_Commission" value="Below 10%"><span class="opt-text">Below 10%</span></label>
-            <label class="opt"><input type="radio" name="H3_Max_Commission" value="10% to 14%"><span class="opt-text">10% to 14%</span></label>
-            <label class="opt"><input type="radio" name="H3_Max_Commission" value="15% to 18%"><span class="opt-text">15% to 18%</span></label>
-            <label class="opt"><input type="radio" name="H3_Max_Commission" value="19% to 22%"><span class="opt-text">19% to 22%</span></label>
-            <label class="opt"><input type="radio" name="H3_Max_Commission" value="Above 22%"><span class="opt-text">Above 22% if it truly handles everything</span></label>
-            <label class="opt"><input type="radio" name="H3_Max_Commission" value="Would not use"><span class="opt-text">I would not use such a platform at any commission level</span></label>
+            <label class="opt"><input type="radio" name="H4_Hub_Platform_Interest" value="Very interested"><span class="opt-text">Very interested and I would register as soon as it is available</span></label>
+            <label class="opt"><input type="radio" name="H4_Hub_Platform_Interest" value="Interested (Fee dependent)"><span class="opt-text">Interested and I would want to know more about fees first</span></label>
+            <label class="opt"><input type="radio" name="H4_Hub_Platform_Interest" value="Neutral"><span class="opt-text">Neutral and depends entirely on the commission</span></label>
+            <label class="opt"><input type="radio" name="H4_Hub_Platform_Interest" value="Not very interested"><span class="opt-text">Not very interested because I prefer to control my own export process</span></label>
+            <label class="opt"><input type="radio" name="H4_Hub_Platform_Interest" value="Not interested at all"><span class="opt-text">Not interested at all</span></label>
           </div>
         </div>
 
         <div class="divider"></div>
 
         <div class="q-block">
-          <div class="q-label">H4. The single biggest thing that would help your business reach European customers?</div>
-          <textarea class="text-field" name="H4_Single_Biggest_Need" rows="2" maxlength="200" placeholder="e.g. 'If someone could handle paperwork and shipping, I could focus on production'"></textarea>
+          <div class="q-label">H5. Which pricing approach would work for your business?</div>
+          <div class="opt-list">
+            <label class="opt"><input type="radio" name="H5_Pricing_Model" value="Commission per sale"><span class="opt-text">Commission per sale</span></label>
+            <label class="opt"><input type="radio" name="H5_Pricing_Model" value="Flat monthly fee"><span class="opt-text">Flat monthly subscription fee</span></label>
+            <label class="opt"><input type="radio" name="H5_Pricing_Model" value="Pay-per-shipment"><span class="opt-text">Pay-per-shipment fee</span></label>
+            <label class="opt"><input type="radio" name="H5_Pricing_Model" value="Would not pay"><span class="opt-text">I would not pay for this service under any model</span></label>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="q-block">
+          <div class="q-label">H6. Maximum commission you would accept for such a platform?</div>
+          <div class="opt-list">
+            <label class="opt"><input type="radio" name="H6_Max_Commission" value="Below 10%"><span class="opt-text">Below 10%</span></label>
+            <label class="opt"><input type="radio" name="H6_Max_Commission" value="10% to 14%"><span class="opt-text">10% to 14%</span></label>
+            <label class="opt"><input type="radio" name="H6_Max_Commission" value="15% to 18%"><span class="opt-text">15% to 18%</span></label>
+            <label class="opt"><input type="radio" name="H6_Max_Commission" value="19% to 22%"><span class="opt-text">19% to 22%</span></label>
+            <label class="opt"><input type="radio" name="H6_Max_Commission" value="Above 22%"><span class="opt-text">Above 22% if it truly handles everything</span></label>
+            <label class="opt"><input type="radio" name="H6_Max_Commission" value="Would not use"><span class="opt-text">I would not use such a platform at any commission level</span></label>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="q-block">
+          <div class="q-label">H7. The single biggest thing that would help your business reach European customers?</div>
+          <textarea class="text-field" name="H7_Single_Biggest_Need" rows="2" maxlength="200" placeholder="e.g. 'If someone could handle paperwork and shipping, I could focus on production'"></textarea>
         </div>
       </div>
       <div class="nav-row">
-        <button class="btn" type="button" onclick="go(7)">← Back</button>
+        <button class="btn" type="button" onclick="backFromH()">← Back</button>
         <button class="btn btn-primary" type="button" onclick="go(9)">Next →</button>
       </div>
     </div>
@@ -726,6 +774,23 @@ function go(n) {
   document.getElementById('prog').style.width = Math.round((n / pages) * 100) + '%';
   document.getElementById('pg-count').textContent = labels[n - 1] + ' — ' + n + ' of ' + pages;
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Branching logic: respondents who have not considered exporting skip
+// Sections D-G (readiness self-assessment) and go straight from C to H.
+let skipReadiness = false;
+document.querySelectorAll('input[name="B1_Currently_Export"]').forEach(function (r) {
+  r.addEventListener('change', function () {
+    skipReadiness = (this.value === 'No - not considered');
+  });
+});
+
+function goFromC() {
+  go(skipReadiness ? 8 : 4);
+}
+
+function backFromH() {
+  go(skipReadiness ? 3 : 7);
 }
 
 function submitForm() {
