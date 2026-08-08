@@ -144,7 +144,7 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 
         <div class="q-block">
           <div class="q-label">B1. Does your business currently export products outside India? <span class="req">*</span></div>
-          <div class="skip-note">Your answer determines what you see next: current exporters and active planners will also rate their EU-export readiness in Sections D–G; if you haven't considered exporting yet, you'll skip straight from Section C to the platform-interest questions in Section H.</div>
+          <div class="skip-note">Your answer determines what you see next: current exporters and active planners will also rate their EU-export readiness in Sections D–G (worded to match your situation); if you haven't considered exporting yet, you'll skip B2–B4 and go straight from Section C to the platform-interest questions in Section H.</div>
           <div class="opt-list" style="margin-top:8px">
             <label class="opt"><input type="radio" name="B1_Currently_Export" value="Yes - regularly"><span class="opt-text">Yes and we export regularly (multiple times per year)</span></label>
             <label class="opt"><input type="radio" name="B1_Currently_Export" value="Yes - occasionally"><span class="opt-text">Yes and we export occasionally (once or twice per year)</span></label>
@@ -153,6 +153,7 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
           </div>
         </div>
 
+        <div id="b234-wrap">
         <div class="divider"></div>
 
         <div class="q-block">
@@ -196,6 +197,7 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
             <label class="opt"><input type="checkbox" name="B4_Export_Channels[]" value="Social Media"><span class="opt-text">Social media (Instagram, WhatsApp Business)</span></label>
             <label class="opt"><input type="checkbox" name="B4_Export_Channels[]" value="Government scheme"><span class="opt-text">Government scheme (FIEO, India Post)</span></label>
           </div>
+        </div>
         </div>
       </div>
       <div class="nav-row">
@@ -264,8 +266,19 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
         <div class="section-title"><div class="dot"></div>Section D — Regulatory readiness <span class="tag-blue">SCRI dimension 1</span></div>
         <p style="font-size:12px;color:#64748b;margin-bottom:1rem">Rate 1 = no knowledge or capability → 5 = fully compliant and operational</p>
 
-        <div class="q-block">
+        <div class="q-block op-variant" data-q="D1">
           <div class="q-label">D1. I have an active Importer Exporter Code (IEC)</div>
+          <div class="q-hint">The IEC is a 10-digit government number from DGFT that is required before any business can legally export from India.</div>
+          <div class="likert-dots">
+            <label class="l-dot"><input type="radio" name="D1_IEC_Code" value="1"><span>1</span></label>
+            <label class="l-dot"><input type="radio" name="D1_IEC_Code" value="2"><span>2</span></label>
+            <label class="l-dot"><input type="radio" name="D1_IEC_Code" value="3"><span>3</span></label>
+            <label class="l-dot"><input type="radio" name="D1_IEC_Code" value="4"><span>4</span></label>
+            <label class="l-dot"><input type="radio" name="D1_IEC_Code" value="5"><span>5</span></label>
+          </div>
+        </div>
+        <div class="q-block plan-variant" data-q="D1" style="display:none">
+          <div class="q-label">D1. I understand what is required to obtain an Importer Exporter Code (IEC) and could complete the process within a few weeks if needed</div>
           <div class="q-hint">The IEC is a 10-digit government number from DGFT that is required before any business can legally export from India.</div>
           <div class="likert-dots">
             <label class="l-dot"><input type="radio" name="D1_IEC_Code" value="1"><span>1</span></label>
@@ -278,8 +291,18 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 
         <div class="divider"></div>
 
-        <div class="q-block">
+        <div class="q-block op-variant" data-q="D2">
           <div class="q-label">D2. I understand GST zero-rating on exported goods and can claim refunds</div>
+          <div class="likert-dots">
+            <label class="l-dot"><input type="radio" name="D2_GST_Zero_Rating" value="1"><span>1</span></label>
+            <label class="l-dot"><input type="radio" name="D2_GST_Zero_Rating" value="2"><span>2</span></label>
+            <label class="l-dot"><input type="radio" name="D2_GST_Zero_Rating" value="3"><span>3</span></label>
+            <label class="l-dot"><input type="radio" name="D2_GST_Zero_Rating" value="4"><span>4</span></label>
+            <label class="l-dot"><input type="radio" name="D2_GST_Zero_Rating" value="5"><span>5</span></label>
+          </div>
+        </div>
+        <div class="q-block plan-variant" data-q="D2" style="display:none">
+          <div class="q-label">D2. I understand how GST zero-rating on exports works and I am confident I could claim the refunds correctly once I start exporting</div>
           <div class="likert-dots">
             <label class="l-dot"><input type="radio" name="D2_GST_Zero_Rating" value="1"><span>1</span></label>
             <label class="l-dot"><input type="radio" name="D2_GST_Zero_Rating" value="2"><span>2</span></label>
@@ -330,8 +353,18 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 
         <div class="divider"></div>
 
-        <div class="q-block">
+        <div class="q-block op-variant" data-q="D6">
           <div class="q-label">D6. My products hold international quality or sustainability certifications</div>
+          <div class="likert-dots">
+            <label class="l-dot"><input type="radio" name="D6_Certifications" value="1"><span>1</span></label>
+            <label class="l-dot"><input type="radio" name="D6_Certifications" value="2"><span>2</span></label>
+            <label class="l-dot"><input type="radio" name="D6_Certifications" value="3"><span>3</span></label>
+            <label class="l-dot"><input type="radio" name="D6_Certifications" value="4"><span>4</span></label>
+            <label class="l-dot"><input type="radio" name="D6_Certifications" value="5"><span>5</span></label>
+          </div>
+        </div>
+        <div class="q-block plan-variant" data-q="D6" style="display:none">
+          <div class="q-label">D6. I know which international quality or sustainability certifications my products would need, and I am prepared to pursue them</div>
           <div class="likert-dots">
             <label class="l-dot"><input type="radio" name="D6_Certifications" value="1"><span>1</span></label>
             <label class="l-dot"><input type="radio" name="D6_Certifications" value="2"><span>2</span></label>
@@ -360,8 +393,18 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
         <div class="section-title"><div class="dot"></div>Section E — Logistics readiness <span class="tag-blue">SCRI dimension 2</span></div>
         <p style="font-size:12px;color:#64748b;margin-bottom:1rem">1 = major challenge or no capability → 5 = fully capable, no significant difficulty</p>
 
-        <div class="q-block">
+        <div class="q-block op-variant" data-q="E1">
           <div class="q-label">E1. My product packaging meets international export standards</div>
+          <div class="likert-dots">
+            <label class="l-dot"><input type="radio" name="E1_Packaging" value="1"><span>1</span></label>
+            <label class="l-dot"><input type="radio" name="E1_Packaging" value="2"><span>2</span></label>
+            <label class="l-dot"><input type="radio" name="E1_Packaging" value="3"><span>3</span></label>
+            <label class="l-dot"><input type="radio" name="E1_Packaging" value="4"><span>4</span></label>
+            <label class="l-dot"><input type="radio" name="E1_Packaging" value="5"><span>5</span></label>
+          </div>
+        </div>
+        <div class="q-block plan-variant" data-q="E1" style="display:none">
+          <div class="q-label">E1. I know what international export packaging standards require for my product, and I am confident I could meet them</div>
           <div class="likert-dots">
             <label class="l-dot"><input type="radio" name="E1_Packaging" value="1"><span>1</span></label>
             <label class="l-dot"><input type="radio" name="E1_Packaging" value="2"><span>2</span></label>
@@ -412,8 +455,18 @@ body{font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot
 
         <div class="divider"></div>
 
-        <div class="q-block">
+        <div class="q-block op-variant" data-q="E5">
           <div class="q-label">E5. I have a clear process for handling international returns</div>
+          <div class="likert-dots">
+            <label class="l-dot"><input type="radio" name="E5_Returns_Process" value="1"><span>1</span></label>
+            <label class="l-dot"><input type="radio" name="E5_Returns_Process" value="2"><span>2</span></label>
+            <label class="l-dot"><input type="radio" name="E5_Returns_Process" value="3"><span>3</span></label>
+            <label class="l-dot"><input type="radio" name="E5_Returns_Process" value="4"><span>4</span></label>
+            <label class="l-dot"><input type="radio" name="E5_Returns_Process" value="5"><span>5</span></label>
+          </div>
+        </div>
+        <div class="q-block plan-variant" data-q="E5" style="display:none">
+          <div class="q-label">E5. I have thought through how I would handle returns from international customers if I started exporting</div>
           <div class="likert-dots">
             <label class="l-dot"><input type="radio" name="E5_Returns_Process" value="1"><span>1</span></label>
             <label class="l-dot"><input type="radio" name="E5_Returns_Process" value="2"><span>2</span></label>
@@ -776,21 +829,44 @@ function go(n) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Branching logic: respondents who have not considered exporting skip
-// Sections D-G (readiness self-assessment) and go straight from C to H.
-let skipReadiness = false;
+// Branching logic driven by B1:
+// - "Yes - regularly" / "Yes - occasionally"  -> group 'exporter': B2-B4 shown, D-G operational wording, full path
+// - "No - actively planning"                  -> group 'planner': B2-B4 hidden, D-G preparedness wording, full path
+// - "No - not considered"                      -> group 'none': B2-B4 hidden, D-G skipped entirely (C -> H)
+let exportGroup = null;
+
+function classifyB1(value) {
+  if (value === 'Yes - regularly' || value === 'Yes - occasionally') return 'exporter';
+  if (value === 'No - actively planning') return 'planner';
+  if (value === 'No - not considered') return 'none';
+  return null;
+}
+
+function applyExportGroup() {
+  const b234 = document.getElementById('b234-wrap');
+  if (b234) b234.style.display = (exportGroup === 'none') ? 'none' : '';
+
+  document.querySelectorAll('.op-variant').forEach(function (el) {
+    el.style.display = (exportGroup === 'planner') ? 'none' : '';
+  });
+  document.querySelectorAll('.plan-variant').forEach(function (el) {
+    el.style.display = (exportGroup === 'planner') ? '' : 'none';
+  });
+}
+
 document.querySelectorAll('input[name="B1_Currently_Export"]').forEach(function (r) {
   r.addEventListener('change', function () {
-    skipReadiness = (this.value === 'No - not considered');
+    exportGroup = classifyB1(this.value);
+    applyExportGroup();
   });
 });
 
 function goFromC() {
-  go(skipReadiness ? 8 : 4);
+  go(exportGroup === 'none' ? 8 : 4);
 }
 
 function backFromH() {
-  go(skipReadiness ? 3 : 7);
+  go(exportGroup === 'none' ? 3 : 7);
 }
 
 function submitForm() {
